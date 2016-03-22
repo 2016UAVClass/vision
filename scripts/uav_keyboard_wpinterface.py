@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 import rospy
 import sys
 
@@ -8,6 +10,8 @@ from mavros_msgs.srv import WaypointSetCurrentRequest
 from mavros_msgs.msg import Waypoint
 from mavros_msgs.srv import SetMode
 from mavros_msgs.srv import CommandBool
+
+import vision
 
 #
 #+---+------+------+---------+---------------+----------------+-------------------+------+-----+---------------+---------------+-------+
@@ -91,6 +95,8 @@ if __name__ == "__main__":
 
     radius = 0.01	# waypoint/goal radius
     nUnits = 1.0 	# number of units that each keystroke moves uav
+
+    vision.main([])
 
     for cmd in sys.stdin:
 	cmd.strip().toLower()
